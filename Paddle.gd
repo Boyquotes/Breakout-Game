@@ -16,6 +16,6 @@ func _physics_process(delta):
 		motion.x = lerp(motion.x, 0, friction_percent)
 	
 	# apply the motion
-	move_and_slide(motion)
+	motion = move_and_slide(motion)
 	
 	pass
