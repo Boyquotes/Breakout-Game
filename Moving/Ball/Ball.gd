@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
 
+const BLOCK_LAYER = 2147483650
+
 export(Vector2) var initial_speed = Vector2(100, -100)
 export(float) var bounce_increase = 1.05
 
@@ -11,6 +13,8 @@ func _physics_process(delta):
 	if collision_info:
 		motion = motion.bounce(collision_info.normal)
 		motion *= bounce_increase
+		if collision_info.collider.get("collision_layer") == BLOCK_LAYER:
+			collision_info.collider.free()
 
 func _on_Timer_timeout():
 	motion = initial_speed
