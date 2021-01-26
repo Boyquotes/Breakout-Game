@@ -29,9 +29,10 @@ func _physics_process(delta):
 			speed += bounce_increase
 			collision_info.collider.free()
 			emit_signal("hit_block")
+		
 		elif collision_info.collider.get("collision_layer") == PADDLE_LAYER:
-			# MODIFY TO CHANGE BOUNCE DIRECTION BASED ON WHERE BALL HIT PADDLE
-			direction = direction.bounce(collision_info.normal)
+			direction = Vector2((position - get_tree().get_nodes_in_group("paddle")[0].position).x * 0.25, -1).normalized()
+		
 		else:
 			direction = direction.bounce(collision_info.normal)
 	
