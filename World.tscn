@@ -14,10 +14,12 @@ font_data = ExtResource( 5 )
 
 [node name="Paddle" parent="." instance=ExtResource( 1 )]
 position = Vector2( 512, 736 )
+acceleration = 200
+max_speed = 600
+friction_percent = 0.5
 
 [node name="Ball" parent="." instance=ExtResource( 2 )]
 position = Vector2( 512, 640 )
-initial_speed = Vector2( 200, -200 )
 
 [node name="Border" type="Node2D" parent="."]
 __meta__ = {
