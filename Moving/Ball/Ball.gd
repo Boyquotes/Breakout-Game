@@ -7,6 +7,7 @@ signal lost
 const BLOCK_LAYER = 2147483650
 const PADDLE_LAYER = 2147483649
 const LOST_Y = 768
+const BOUNCE_DAMPEN = 0.025
 
 export(Vector2) var initial_direction = Vector2(1, -1)
 export(int) var initial_speed = 200
@@ -29,12 +30,20 @@ func _physics_process(delta):
 			speed += bounce_increase
 			collision_info.collider.free()
 			emit_signal("hit_block")
+			# sound
+			$Hit1.play()
 		
 		elif collision_info.collider.get("collision_layer") == PADDLE_LAYER:
-			direction = Vector2((position - get_tree().get_nodes_in_group("paddle")[0].position).x * 0.25, -1).normalized()
+			# add bounce based on where ball hit paddle
+			direction = Vector2((position - get_tree().get_nodes_in_group("paddle")[0].position).x * BOUNCE_DAMPEN, -1).normalized()
+			# sound
+			$Hit2.play()
 		
 		else:
+			# just bounce
 			direction = direction.bounce(collision_info.normal)
+			# sound
+			$Hit3.play()
 	
 	# frees ball if out of play area
 	# has to be at end because all code after freeing will cause error
