@@ -17,4 +17,4 @@ friction_percent = 0.05
 polygon = PoolVector2Array( -80, -16, 80, -16, 80, 0, 48, 16, 16, 0, -16, 0, -48, 16, -80, 0 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 80, -16, 80, 16, -80, 16, -80, -16 )
+polygon = PoolVector2Array( 80, -16, 80, 0, -80, 0, -80, -16 )
