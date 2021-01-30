@@ -9,6 +9,7 @@ var score = 0
 
 
 func _on_Ball_hit_block():
+	# displays the score
 	score += 1
 	self.text = String(score)
 	if score == total_blocks:

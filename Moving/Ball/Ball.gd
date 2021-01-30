@@ -57,3 +57,6 @@ func _on_Timer_timeout():
 	direction = initial_direction.normalized()
 	speed = initial_speed
 	
+
+func _on_Score_win():
+	queue_free()

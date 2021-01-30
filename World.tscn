@@ -23,6 +23,7 @@ friction_percent = 0.5
 
 [node name="Ball" parent="." instance=ExtResource( 2 )]
 position = Vector2( 512, 592 )
+initial_direction = Vector2( -1, 1 )
 
 [node name="Feedback" type="Node2D" parent="."]
 position = Vector2( 512, 32 )
@@ -1031,3 +1032,4 @@ polygon = PoolVector2Array( -48, 16, 48, 16, 48, -16, -48, -16 )
 [connection signal="lost" from="Ball" to="Feedback" method="_on_Ball_lost"]
 [connection signal="button_up" from="Feedback/Restart" to="Feedback" method="_on_Restart_button_up"]
 [connection signal="win" from="Score" to="Feedback" method="_on_Score_win"]
+[connection signal="win" from="Score" to="Ball" method="_on_Score_win"]
