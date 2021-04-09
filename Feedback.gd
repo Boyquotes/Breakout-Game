@@ -5,17 +5,17 @@ export(String) var win_text = "You win!"
 export(String) var lose_text = "You're Terrible"
 
 func _ready():
-	$Text.hide()
+	$Poop.hide()
 	$Restart.hide()
 
 func _on_Score_win():
-	$Text.text = win_text
-	$Text.show()
+	$Poop.text = win_text
+	$Poop.show()
 	$Restart.show()
 
 func _on_Ball_lost():
-	$Text.text = lose_text
-	$Text.show()
+	$Poop.text = lose_text
+	$Poop.show()
 	$Restart.show()
 
 func _on_Restart_button_up():
